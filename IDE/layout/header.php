@@ -14,7 +14,7 @@ background-color: white;">
 
 	<div style="float:left;width:20%;margin-top:8px;margin-left:30px;"">
 
-	<img src="../img/logo.png"  width="160" height="160">
+	<img src="../../img/logo.png"  width="160" height="160">
 
 	</div>
 </div>

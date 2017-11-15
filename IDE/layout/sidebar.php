@@ -12,7 +12,7 @@
     height:5px;
     width:90%" class="w3-theme-l2">
 
-    <img class="w3-border " src="../img/profile.png"  width="130" height="130"><br>
+    <img class="w3-border " src="../../img/profile.png"  width="130" height="130"><br>
 
     <div class="w3-padding-left w3-margin-top">
     	<a href="#" ><i  class = "fa fa-home " style="font-size:30px;margin-right:20px"></i></a><text style="font-size:20px;">HOME</text><br>

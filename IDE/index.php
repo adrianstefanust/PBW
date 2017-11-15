@@ -50,10 +50,10 @@ body  {
       
       			</div>
 
-      		<form class="w3-container" action="/action_page.php">
+      		<form class="w3-container" action="phpScript\login.php" method="post">
      			 <h1 class="w3-left">Login</h1>
        			 <div class="w3-section">
-          			<input class="w3-input w3-border-bottom w3-margin-bottom" type="text" placeholder="Username" name="usrname" required>
+          			<input class="w3-input w3-border-bottom w3-margin-bottom" type="text" placeholder="Username" name="username" required>
           			<input class="w3-input w3-border-bottom" type="password" placeholder="Password" name="psw" required>
           			<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Login</button>
           
