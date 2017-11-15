@@ -1,5 +1,5 @@
-<!-- include connection -->
-<?php include('../../phpScript/connection.php'); 
+<?php
+include('../../phpScript/connection.php'); 
 include('../../phpScript/startSession.php');
 ?>
 <!DOCTYPE html>
@@ -22,8 +22,12 @@ include('../../phpScript/startSession.php');
 		<!-- include sidebar -->
 		<?php include ('../../layout/sidebar.php');?>
 		<div class="w3-container" style="width: 75%; float: right;">
-			<?php include ('../../phpScript/courses.php'); ?>
+			<div class="w3-panel w3-card-2 w3-grey"><p><?php
+			echo $_GET["courseTitle"];
+			?></p></div>
+			<?php include("../../phpScript/topics.php");?>
 		</div>
 	</div>
 </body>
 </html>
+?>
