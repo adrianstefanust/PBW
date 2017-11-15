@@ -15,15 +15,17 @@ else{
 		if($result2 && $result2->num_rows > 0){
 			$sql3 = "SELECT users.ID_U as id, users.username as username, users.pass as pass, users.userID as userid, users.name as name, usergroups.name as position FROM users JOIN usergroups ON users.ID_UG = usergroups.ID_UG WHERE username = '$username' AND pass= '$password'";
 			$result3 = $mysqli->query($sql3);
-			if($result3 && $result->num_rows > 0){
+			if($result3 && $result3->num_rows > 0){
 				$row = $result3->fetch_array();
 				$_SESSION['id'] = $row["id"];
 				$_SESSION['username'] = $row["username"];
+				$cookieuname = $_SESSION['username'];
 				$_SESSION['pass'] = $row["pass"];
 				$_SESSION['userid'] = $row["userid"];
 				$_SESSION['name'] = $row["name"];
 				$role = $row["position"];
 				$_SESSION['position'] = $role;
+				setcookie("cookieuname", "$cookieuname", time() + (86400 * 30), "/");
 				if($role == 'student'){
 					header("Location: ../pages/student/std.php");
 				}
@@ -33,11 +35,12 @@ else{
 			}
 		}
 		else{
-			echo "WRONG PASSWORD";
+			echo "Wrong Password";
+			
 		}
 	}
 	else{
-		echo "WRONG USERNAME";
+		echo "Wrong Username";
 	}
 }
 ?>

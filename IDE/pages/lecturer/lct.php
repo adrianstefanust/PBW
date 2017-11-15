@@ -21,6 +21,10 @@ include('../../phpScript/startSession.php');
 	<div class="w3-main">
 		<!-- include sidebar -->
 		<?php include ('../../layout/sidebar.php');?>
+		<div class="w3-container" style="width: 75%; float: right;">
+			<div class="w3-panel w3-card-2 w3-grey"><p>COURSE OVERVIEW</p></div>
+			<?php include ('../../phpScript/courses.php'); ?>
+		</div>
 	</div>
 </body>
 </html>
