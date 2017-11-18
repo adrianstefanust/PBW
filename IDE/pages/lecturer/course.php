@@ -28,6 +28,32 @@ include('../../phpScript/startSession.php');
 			<?php include("../../phpScript/topics.php");?>
 		</div>
 	</div>
+	<!--MODAL-->
+	<div id="id01" class="w3-modal">
+		<div class="w3-modal-content">
+			<header class="w3-container">
+				<span onclick="document.getElementById('id01').style.display='none'" 
+				class="w3-button w3-display-topright">&times;</span>
+				<p>SELECT ACTIVITY</p>
+				<hr>
+			</header>
+			<div class="w3-container">
+				<input type="radio" name="" value="Assignment"> Assignment
+				<br>
+				<input type="radio" name="" value="File"> File
+			</div>
+			<footer class="w3-container">
+				<button type="submit">ADD</button>
+			</footer>
+		</div>
+
+	</div>
 </body>
 </html>
-?>
+<script type="text/javascript">
+	var button = document.getElementById("button-modal");
+	button.onclick = function(){
+		document.getElementById('id01').style.display='block';
+	}
+</script>
+

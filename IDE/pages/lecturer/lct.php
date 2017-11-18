@@ -25,5 +25,6 @@ include('../../phpScript/startSession.php');
 			<?php include ('../../phpScript/courses.php'); ?>
 		</div>
 	</div>
+	
 </body>
 </html>
