@@ -60,7 +60,12 @@ if(isset($_COOKIE["cookieuname"])){
 				<form class="w3-container" id="formLogin" method="post" action="phpScript/login.php">
 					<h1 class="w3-left">Login</h1>
 					<div class="w3-section">
-						<input class="w3-input w3-border-bottom w3-margin-bottom" type="text" placeholder="Username" name="username" required value="<?php echo "$temp";?>">
+						<input class="w3-input w3-border-bottom w3-margin-bottom" type="text" placeholder="Username" name="username" required value="<?php if(
+       isset($_COOKIE['cookieuname']))
+       {
+           echo $_COOKIE['cookieuname'];
+           }
+    ?>">
 						<input class="w3-input w3-border-bottom" type="password" placeholder="Password" name="psw" required>
 						<button class="w3-button w3-block w3-black w3-section w3-padding" type="submit" id="submitLogin">Login</button>
 						<p id="messageError" style="color : red"></p>

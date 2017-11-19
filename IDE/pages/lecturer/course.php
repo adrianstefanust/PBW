@@ -30,20 +30,20 @@ include('../../phpScript/startSession.php');
 	</div>
 	<!--MODAL-->
 	<div id="id01" class="w3-modal">
-		<div class="w3-modal-content">
+		<div class="w3-modal-content" style="width:550px;height:200px;"> 
 			<header class="w3-container">
-				<span onclick="document.getElementById('id01').style.display='none'" 
-				class="w3-button w3-display-topright">&times;</span>
-				<p>SELECT ACTIVITY</p>
-				<hr>
+				<span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+
+				<H3>SELECT ACTIVITY</H3><BR>
 			</header>
 			<div class="w3-container">
-				<input type="radio" name="" value="Assignment"> Assignment
+				<input type="radio" name="activity" value="Assignment" > <a class = "fa fa-file-text-o "> Assignment</a>
 				<br>
-				<input type="radio" name="" value="File"> File
+				<input type="radio" name="activity" value="File" > <a class = "fa fa-file-o "> File </a>
 			</div>
 			<footer class="w3-container">
-				<button type="submit">ADD</button>
+			<br>
+				<button type="submit" class="w3-large w3-black w3-btn">ADD</button>
 			</footer>
 		</div>
 

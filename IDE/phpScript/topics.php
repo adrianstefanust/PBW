@@ -21,7 +21,8 @@ if($result && $result->num_rows > 0){
 				}
 			}
 		if($_SESSION['position'] == 'lecturer'){
-			echo "<p><button id="."button-modal"." class="."w3-button w3-grey".">Add Activity</button></p>";
+
+		echo "<p><button id=button-modal class="."'w3-button w3-grey w3-large'>Add Activity</button></p>";
 		}
 		echo "</div>";
 	}

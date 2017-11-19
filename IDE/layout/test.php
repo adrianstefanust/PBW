@@ -12,7 +12,9 @@ include('style.php');
 <body>
 <?php
 include('header.php');
+
 include('sidebar.php');
+include('addingActivity.php')
 ?>
 </body>
 </html>
