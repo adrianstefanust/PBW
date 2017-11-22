@@ -28,7 +28,7 @@ else{
             <li><a href="<?php echo "$link"?>" style="text-decoration: none"><i  class = "fa fa-home " style="font-size:20px;margin-right:20px"></i> HOME</a></li>
             <li><a href="#" style="text-decoration: none"><i  class = "fa fa-list " style="font-size:20px;margin-right:20px ;margin-top:17px;"></i>MY COURSES</a><br></li>
             <li><a href="#" style="text-decoration: none"><i  class = "fa fa-user " style="font-size:20px;margin-right:20px ;margin-top:17px;"></i> MY PROFILE</a></li>
-            <li><a href="../../index.php" style="text-decoration: none"><i  class = "fa fa-power-off " style="font-size:20px;margin-right:20px ;margin-top:17px;"></i>LOG OUT</a></li>
+            <li><a href="../../phpScript/logout.php" style="text-decoration: none"><i  class = "fa fa-power-off" style="font-size:20px;margin-right:20px ;margin-top:17px;"></i>LOG OUT</a></li>
         </ul>
     </div>
 </div>

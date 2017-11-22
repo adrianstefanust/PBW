@@ -1,6 +1,9 @@
 <!-- include connection -->
 <?php include('../../phpScript/connection.php'); 
 include('../../phpScript/startSession.php');
+if(isset($_SESSION['id'])){
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,3 +31,9 @@ include('../../phpScript/startSession.php');
 	
 </body>
 </html>
+<?php
+}
+else{
+	header("Location:../../index.php");
+}
+?>
