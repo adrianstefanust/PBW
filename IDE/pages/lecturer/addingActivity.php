@@ -1,6 +1,8 @@
 <!-- include connection -->
 <?php include('../../phpScript/connection.php'); 
 include('../../phpScript/startSession.php');
+if(isset($_SESSION['id'])){
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -34,10 +36,10 @@ include('../../phpScript/startSession.php');
 			<div class="w3-theme-l2 " style="margin:0px;padding:0px;">
 				<?php
 				if($acctypes==1){
-					echo "<h1 class="."'w3-margin-left w3-text-black'"." >Adding a new Assignments</h1>";
+					echo "<h1 class="."'w3-margin-left w3-text-black w3-xlarge'"." >Adding a new Assignments</h1>";
 				}
 				else{
-					echo "<h1 class="."'w3-margin-left w3-text-black'"." >Adding a new File</h1>";
+					echo "<h1 class="."'w3-margin-left w3-text-black w3-xlarge'"." >Adding a new File</h1>";
 				}
 				?>
 			</div>
@@ -158,3 +160,9 @@ include('../../phpScript/startSession.php');
 		</script>
 	</body>
 	</html>
+	<?php
+}
+else{
+	header("location:../../index.php");
+}
+?>

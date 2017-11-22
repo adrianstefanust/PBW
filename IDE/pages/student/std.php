@@ -1,6 +1,8 @@
 <!-- include connection -->
 <?php include('../../phpScript/connection.php'); 
 include('../../phpScript/startSession.php');
+if(isset($_SESSION['id'])){
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,7 +24,12 @@ include('../../phpScript/startSession.php');
 		<!-- include sidebar -->
 		<?php include ('../../layout/sidebar.php');?>
 		<div class="w3-container" style="width: 75%; float: right;">
-			<?php include ('../../phpScript/courses.php'); ?>
+			<?php include ('../../phpScript/courses.php'); 
+}
+else{
+	header("location:../../index.php");
+}
+			?>
 		</div>
 	</div>
 </body>

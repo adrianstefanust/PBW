@@ -2,8 +2,6 @@
 <?php include('../../phpScript/connection.php'); 
 include('../../phpScript/startSession.php');
 if(isset($_SESSION['id'])){
-
-
 ?>
 <!DOCTYPE html>
 <html>
