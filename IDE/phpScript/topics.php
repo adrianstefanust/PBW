@@ -39,6 +39,7 @@ if($result && $result->num_rows > 0){
 								<input type="radio" name="activity" value="2" required> File
 								<br>
 								<input type="text" name="id_topik" value="<?php echo "$idTopic";?>" hidden>
+								<input type="text" name="id_course" value="<?php echo "$id";?>" hidden>
 								<br>
 								<button type="submit" class="w3-large w3-black w3-btn">ADD</button>
 							</form>

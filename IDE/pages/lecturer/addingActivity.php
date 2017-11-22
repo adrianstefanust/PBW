@@ -24,7 +24,11 @@ include('../../phpScript/startSession.php');
 		<?php include ('../../layout/sidebar.php');
 		$acctypes = $_GET['activity'];
 		$idtopic = $_GET['id_topik'];
+		$idcourse = $_GET['id_course'];
 
+		$_SESSION['id_acctypes'] = $acctypes;
+		$_SESSION['id_topic'] = $idtopic;
+		$_SESSION['id_course'] = $idcourse;
 		?>
 		<div class="w3-container w3-padding-left w3-padding-right" style="width: 75%; float:right; padding:0px; height:630px;">
 			<div class="w3-theme-l2 " style="margin:0px;padding:0px;">
@@ -69,10 +73,10 @@ include('../../phpScript/startSession.php');
 								</button>
 							</legend>
 							<div class="w3-hide w3-container w3-margin-top" id="avail">
-								Allow submissions from <i class="fa fa fa-question-circle"></i> <input id="startDateHTML" type="date" name="startDate"> <input type="checkbox" name="">Enable
+								Allow submissions from <i class="fa fa fa-question-circle"></i> <input id="startDateHTML" type="date" name="startDate" disabled> <input type="checkbox" onchange="document.getElementById('startDateHTML').disabled = !this.checked;">Enable
 								<br>
 								<br>
-								Due Date <i class="fa fa fa-question-circle"></i> <input type="date" name="endDate" id="endDateHTML"> <input type="checkbox" name=""> Enable
+								Due Date <i class="fa fa fa-question-circle"></i> <input type="date" name="endDate" id="endDateHTML" disabled=""> <input type="checkbox" onchange="document.getElementById('endDateHTML').disabled = !this.checked;"> Enable
 								<br>
 							</div>
 						</fieldset>
