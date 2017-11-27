@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2017 at 01:43 PM
+-- Generation Time: Nov 27, 2017 at 09:41 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -37,17 +37,19 @@ CREATE TABLE `activities` (
   `submissions` int(11) DEFAULT NULL,
   `title` varchar(100) DEFAULT NULL,
   `id_topic` int(2) DEFAULT NULL,
-  `fileDir` varchar(100) DEFAULT NULL
+  `fileDir` varchar(100) DEFAULT NULL,
+  `description` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `activities`
 --
 
-INSERT INTO `activities` (`ID_A`, `ID_AT`, `ID_C`, `dateOpen`, `dateClose`, `submissions`, `title`, `id_topic`, `fileDir`) VALUES
-(1, 1, 2, NULL, NULL, NULL, 'Test 1', 1, NULL),
-(2, 2, 2, NULL, NULL, NULL, 'Test 2', 1, NULL),
-(3, 2, 2, NULL, NULL, NULL, 'Test 3', 2, NULL);
+INSERT INTO `activities` (`ID_A`, `ID_AT`, `ID_C`, `dateOpen`, `dateClose`, `submissions`, `title`, `id_topic`, `fileDir`, `description`) VALUES
+(1, 1, 2, NULL, NULL, NULL, 'Test 1', 1, NULL, ''),
+(2, 2, 2, NULL, NULL, NULL, 'Test 2', 1, NULL, ''),
+(3, 2, 2, NULL, NULL, NULL, 'Test 3', 2, NULL, ''),
+(11, 2, 1, NULL, NULL, NULL, 'Coba', 1, '../upload/file/AIF315/23.jpg', '');
 
 -- --------------------------------------------------------
 
@@ -337,7 +339,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `ID_A` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID_A` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `acttypes`
 --
