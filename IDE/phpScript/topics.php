@@ -9,16 +9,32 @@ if($result && $result->num_rows > 0){
 		$idTopic= $row["id_topic"];
 		$name = $row["name"];
 		?>
-		<div class="w3-panel w3-card-2"><p><i class="fa fa-newspaper-o"></i><?php echo "$name";?></p>
+		<div class="w3-panel w3-card-2"><p style="font-size: 24px;"><i class="fa fa-newspaper-o"></i><?php echo "$name";?></p>
 			<?php
-			$sqlGetKontenTopik = "SELECT DISTINCT activities.title as title FROM activities JOIN courses ON activities.ID_C = courses.ID_C WHERE $id = courses.ID_C AND activities.id_topic = $idTopic;";
+			$sqlGetKontenTopik = "SELECT DISTINCT activities.title as title, activities.description as description, activities.fileDir as dir FROM activities JOIN courses ON activities.ID_C = courses.ID_C WHERE $id = courses.ID_C AND activities.id_topic = $idTopic;";
 			$resultKontenTopik = $mysqli->query($sqlGetKontenTopik);
 			if($resultKontenTopik && $resultKontenTopik->num_rows > 0){
 				while ($rowKontenTopik = $resultKontenTopik->fetch_assoc()) {
 					$namaKonten = $rowKontenTopik["title"];
-					?>
-					<p><?php echo "$namaKonten";?></p>
-					<?php
+					$description = $rowKontenTopik["description"];
+					$dir = $rowKontenTopik["dir"];
+					if($dir != ""){
+						
+						?>
+
+						<p style="font-size: 18px;"><a href="<?php echo "../$dir"?>" download><?php echo "$namaKonten";?></a></p>
+						<p style="font-size: 14px;"><?php echo "$description";?></p>
+						<hr>
+
+						<?php
+					}
+					else{
+						?>
+						<p style="font-size: 18px;"><?php echo "$namaKonten";?></p>
+						<p style="font-size: 14px;"><?php echo "$description";?></p>
+						<hr>
+						<?php
+					}
 				}
 			}
 			if($_SESSION['position'] == 'lecturer'){
