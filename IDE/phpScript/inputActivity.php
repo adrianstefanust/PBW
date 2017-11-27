@@ -4,10 +4,11 @@ include('startSession.php');
 $idcourse = $_SESSION['id_course'];
 $idtopic = $_SESSION['id_topic'];
 $acctypes = $_SESSION['id_acctypes'];
-$sqlGetCourseCode = "SELECT DISTINCT code FROM courses WHERE $idcourse = courses.ID_C;";
+$sqlGetCourseCode = "SELECT DISTINCT code, course FROM courses WHERE $idcourse = courses.ID_C;";
 $resultCourseCode = $mysqli->query($sqlGetCourseCode);
 $rowCourseCode = $resultCourseCode->fetch_assoc();
 $courseCode = $rowCourseCode["code"];
+$courseTitle = $rowCourseCode["course"];
 
 
 
@@ -40,7 +41,7 @@ else{
 			if (file_exists($filename)) {
 				$path = '../upload/file/'."$courseCode/$attachment";
 				move_uploaded_file($file_tmp, '../upload/file/'."$courseCode/".$attachment);
-				$sqlInputActivity = "INSERT INTO activities (`ID_AT`, `ID_C`, `title`, `id_topic`, `fileDir`) VALUES ('$acctypes','$idcourse', '$description', '$idtopic', '$path')";
+				$sqlInputActivity = "INSERT INTO activities (`ID_AT`, `ID_C`, `title`, `id_topic`, `fileDir`, `description`) VALUES ('$acctypes','$idcourse', '$description', '$idtopic', '$path', '$description')";
 				$mysqli->query($sqlInputActivity);
 			} else {
 				mkdir('../upload/file/'."$courseCode", 0777, true);
@@ -59,7 +60,8 @@ else{
 	}
 	
 }
-
+header("Location: ../pages/lecturer/lct.php");
+die();
 
 
 ?>

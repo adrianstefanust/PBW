@@ -55,8 +55,8 @@ if(isset($_SESSION['id'])){
 						</legend>
 						<div class="w3-hide w3-container w3-margin-top" id="gen">
 							<div style="width:100%;height:60px">
-								<text class="w3-text-red w3-left " style="margin-left:60px;">Name*</text>
-								<input name="name" class="w3-input w3-border w3-border-theme value w3-left" type="text" style="width:800px;margin-left:100px;height:30px;" >
+								<text class="w3-text-red w3-left " style="margin-left:60px;">Name *</text>
+								<input id="name-box" name="name" class="w3-input w3-border w3-border-theme value w3-left" type="text" style="width:800px;margin-left:100px;height:30px;" >
 							</div>
 							<div style="margin-top:10px;padding:0px;height:100px;">
 								<text class="w3-left " style="margin-left:60px;">Description</text>
@@ -99,12 +99,24 @@ if(isset($_SESSION['id'])){
 					</fieldset>
 				</div>
 				<div style="margin-top: 35px; margin-left: 30%;">
-					<button type="submit" class="w3-button w3-black  w3-border-black toggler">SAVE AND RETURN TO COURSE</button>
+					<button type="submit" class="w3-button w3-black  w3-border-black toggler" onclick="return checkInput();">SAVE AND RETURN TO COURSE</button>
 					<button class="w3-button w3-black  w3-border-black toggler">CANCEL</button>
+					<p style="color: red;" id="keterangan"></p>
 				</div>
 			</form>
 		</div>
 		<script>
+			function checkInput(){
+				var val = document.getElementById('name-box').value;
+				alert(val);
+				if(val == ""){
+					document.getElementById('keterangan').innerHTML = "Ada Input yang belum diisi";
+					return false;
+				}
+				else{
+					return true;
+				}
+			}
 			function GeneralClicked() {
 
 				var x = document.getElementById('gen');
