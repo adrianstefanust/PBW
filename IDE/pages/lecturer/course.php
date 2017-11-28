@@ -28,7 +28,11 @@ include('../../phpScript/startSession.php');
 			<?php include("../../phpScript/topics.php");?>
 		</div>
 	</div>
-	
+		<script>
+	function downloadClicked() {
+    alert("test");
+}
+	</script>
 </body>
 </html>
 

@@ -28,6 +28,13 @@ include('../../phpScript/startSession.php');
 			<?php include("../../phpScript/topics.php");?>
 		</div>
 	</div>
+	<script>
+	$(document).ready(function(){
+    $('#downloadLink').click(function(){
+        alert('Sign new href executed.');
+    });
+});
+	</script>
 </body>
 </html>
 ?>

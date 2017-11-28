@@ -20,7 +20,6 @@ if($result && $result->num_rows > 0){
 					$dir = $rowKontenTopik["dir"];
 					$acc = $rowKontenTopik["tipeFile"];
 					$_SESSION['ida'] = $rowKontenTopik["ida"];
-					
 					if($dir != ""){
 						
 						?>
@@ -32,7 +31,9 @@ if($result && $result->num_rows > 0){
 						if($acc == 1){
 
 							if($_SESSION['position'] == 'lecturer'){
-								echo "<a href = ".'""'.">Download Answer</a>";
+								?>
+								<a href ="" id="downloadLink" href="#" onclick="downloadClicked();return false;">Download Answer <?php echo $id ?></a>
+								<?php
 							}
 							else{
 								?>
@@ -57,7 +58,9 @@ if($result && $result->num_rows > 0){
 						if($acc == 1){
 
 							if($_SESSION['position'] == 'lecturer'){
-								echo "<a href = ".'""'.">Download Answer</a>";
+								?>
+								<a href ="" id="downloadLink" href="#" onclick="downloadClicked();return false;">Download Answer</a>
+								<?php
 							}
 							else{
 								?>

@@ -26,7 +26,11 @@ if(isset($_SESSION['id'])){
 			<?php include ('../../phpScript/courses.php'); ?>
 		</div>
 	</div>
-	
+	<script>
+	function downloadClicked() {
+    alert("test");
+}
+	</script>
 </body>
 </html>
 <?php
