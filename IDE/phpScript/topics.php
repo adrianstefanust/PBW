@@ -2,7 +2,6 @@
 $id = $_GET['id'];
 $sql = "SELECT DISTINCT id_topic, name FROM topic;";
 $result = $mysqli->query($sql);
-
 if($result && $result->num_rows > 0){
 	while ($row = $result->fetch_assoc()) {
 
@@ -21,7 +20,7 @@ if($result && $result->num_rows > 0){
 					$dir = $rowKontenTopik["dir"];
 					$acc = $rowKontenTopik["tipeFile"];
 					$_SESSION['ida'] = $rowKontenTopik["ida"];
-
+					
 					if($dir != ""){
 						
 						?>
