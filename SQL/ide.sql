@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2017 at 09:41 AM
+-- Generation Time: Nov 28, 2017 at 01:15 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -49,7 +49,15 @@ INSERT INTO `activities` (`ID_A`, `ID_AT`, `ID_C`, `dateOpen`, `dateClose`, `sub
 (1, 1, 2, NULL, NULL, NULL, 'Test 1', 1, NULL, ''),
 (2, 2, 2, NULL, NULL, NULL, 'Test 2', 1, NULL, ''),
 (3, 2, 2, NULL, NULL, NULL, 'Test 3', 2, NULL, ''),
-(11, 2, 1, NULL, NULL, NULL, 'Coba', 1, '../upload/file/AIF315/23.jpg', '');
+(11, 2, 1, NULL, NULL, NULL, 'Coba', 1, '../upload/file/AIF315/23.jpg', ''),
+(12, 2, 2, NULL, NULL, NULL, 'Coba', 1, '../upload/file/AIF101/23.jpg', 'Test Upload'),
+(13, 2, 2, NULL, NULL, NULL, 'Test Upload', 1, '../upload/file/AIF101/144563.jpg', 'Test Upload'),
+(16, 2, 2, NULL, NULL, NULL, 'Zip', 1, '../upload/file/AIF101/fabricated-city_indonesian-1526113.zip', ''),
+(17, 1, 2, '2017-01-01', '2017-01-02', NULL, 'Test Assign', 1, NULL, 'Test'),
+(18, 1, 2, '2017-01-01', '2017-01-02', NULL, 'Test Assign', 1, NULL, 'Test Assign'),
+(19, 1, 2, '2017-01-01', '2017-01-02', NULL, 'Test Assign 2', 1, NULL, 'Assign 2'),
+(20, 1, 2, '2017-01-01', '2017-01-02', NULL, 'Test Assign 2', 1, NULL, 'Assign 2'),
+(21, 1, 2, '2017-01-01', '2017-01-02', NULL, 'Test Assign 2', 1, NULL, 'Assign 2');
 
 -- --------------------------------------------------------
 
@@ -139,7 +147,7 @@ CREATE TABLE `submissions` (
   `ID_SUB` int(11) NOT NULL,
   `ID_A` int(11) NOT NULL,
   `ID_U` int(11) NOT NULL,
-  `submitTime` date NOT NULL,
+  `submitTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `fileDirectory` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -339,12 +347,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `ID_A` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID_A` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `acttypes`
 --
 ALTER TABLE `acttypes`
   MODIFY `ID_AT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `submissions`
+--
+ALTER TABLE `submissions`
+  MODIFY `ID_SUB` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `usergroups`
 --
