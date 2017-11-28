@@ -12,6 +12,7 @@ include('../../phpScript/startSession.php');
 	<link rel="stylesheet" href="../../lib/font-awesome.css">
 	<link rel="stylesheet" href="../../style/style.css">
 	<link rel="stylesheet" href="../../lib/w3-theme-dark-grey.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -23,18 +24,47 @@ include('../../phpScript/startSession.php');
 		<?php include ('../../layout/sidebar.php');?>
 		<div class="w3-container" style="width: 75%; float: right;">
 			<div class="w3-panel w3-card-2 w3-grey"><p><?php
-			echo $_GET["courseTitle"];
-			?></p></div>
+			$_SESSION["courseTitle"] = $_GET["courseTitle"];
+			echo $_SESSION["courseTitle"];
+
+			?></p>
+
+		</div>
+		<p id="keterangan-upload"></p>
 			<?php include("../../phpScript/topics.php");?>
 		</div>
 	</div>
-	<script>
-	$(document).ready(function(){
-    $('#downloadLink').click(function(){
-        alert('Sign new href executed.');
-    });
-});
-	</script>
 </body>
 </html>
+<!--AJAX-->
+<script type="text/javascript">
+	$('#upload').on('click', function(e) {
+		response = '';
+		e.preventDefault();
+		var file_data = $('#attachment-file').prop('files')[0];
+		var form_data = new FormData($("#formUpload")[0]);                             
+		$.ajax({
+			type: 'POST',
+			url: "../../phpScript/uploadAnswer.php",
+			cache: false,
+			contentType: false,
+			processData: false,
+			data: form_data,                         
+			async : false,
+			success: function(text){
+				response = text;
+			}
+		});
+		if(response == "success"){
+			document.location.reload();
+			
+		}
+		else{
+			 $("#keterangan-upload").text(response);
+		}
+		$("#formUpload")[0].reset();
+		
+	});
+	
+</script>
 ?>

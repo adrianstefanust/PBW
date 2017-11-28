@@ -27,10 +27,10 @@ else{
 				$_SESSION['position'] = $role;
 				setcookie("cookieuname", "$cookieuname", time() + (86400 * 30), "/");
 				if($role == 'student'){
-					header("Location: ../pages/student/std.php");
+					echo "student";
 				}
 				else{
-					header("Location: ../pages/lecturer/lct.php");
+					echo "lecturer";
 				}
 			}
 		}
