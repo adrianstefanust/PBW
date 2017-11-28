@@ -9,34 +9,59 @@ if($result && $result->num_rows > 0){
 		$idTopic= $row["id_topic"];
 		$name = $row["name"];
 		?>
-		<div class="w3-panel w3-card-2"><p style="font-size: 24px;"><i class="fa fa-newspaper-o"></i><?php echo "$name";?></p>
+			<div class="w3-panel w3-card-2"><p style="font-size: 24px;"><i class="fa fa-newspaper-o"></i><?php echo "$name";?></p>
 			<?php
-			$sqlGetKontenTopik = "SELECT DISTINCT activities.title as title, activities.description as description, activities.fileDir as dir FROM activities JOIN courses ON activities.ID_C = courses.ID_C WHERE $id = courses.ID_C AND activities.id_topic = $idTopic;";
+			$sqlGetKontenTopik = "SELECT DISTINCT activities.title as title, activities.description as description, activities.fileDir as dir, activities.ID_AT as tipeFile FROM activities JOIN courses ON activities.ID_C = courses.ID_C WHERE $id = courses.ID_C AND activities.id_topic = $idTopic;";
 			$resultKontenTopik = $mysqli->query($sqlGetKontenTopik);
 			if($resultKontenTopik && $resultKontenTopik->num_rows > 0){
 				while ($rowKontenTopik = $resultKontenTopik->fetch_assoc()) {
+					
 					$namaKonten = $rowKontenTopik["title"];
 					$description = $rowKontenTopik["description"];
 					$dir = $rowKontenTopik["dir"];
+					$acc = $rowKontenTopik["tipeFile"];
 					if($dir != ""){
 						
 						?>
 
 						<p style="font-size: 18px;"><a href="<?php echo "../$dir"?>" download><?php echo "$namaKonten";?></a></p>
 						<p style="font-size: 14px;"><?php echo "$description";?></p>
-						<hr>
+						
+						<?php
+							if($acc == 1){
 
+								if($_SESSION['position'] == 'lecturer'){
+									echo "<a href = ".'""'.">Download Answer</a>";
+								}
+								else{
+									echo "<button type=".'"file"'.">Upload Answer</button>";
+								}
+							}
+						?>
+						<hr>
 						<?php
 					}
 					else{
 						?>
 						<p style="font-size: 18px;"><?php echo "$namaKonten";?></p>
 						<p style="font-size: 14px;"><?php echo "$description";?></p>
+						<?php
+							if($acc == 1){
+
+								if($_SESSION['position'] == 'lecturer'){
+									echo "<a href = ".'""'.">Download Answer</a>";
+								}
+								else{
+									echo "<button type=".'"file"'.">Upload Answer</button>";
+								}
+							}
+						?>
 						<hr>
 						<?php
 					}
 				}
 			}
+		
 			if($_SESSION['position'] == 'lecturer'){
 				?>
 				<p><button onclick="document.getElementById('modal<?php echo "$idTopic"; ?>').style.display='block'" class='w3-button w3-grey w3-large'>Add Activity</button></p>
@@ -51,6 +76,7 @@ if($result && $result->num_rows > 0){
 						<div class="w3-container">
 							<form method="get" action="<?php echo "addingActivity.php?id=$idTopic";?>">
 								<input type="radio" name="activity" value="1" required> Assignment
+
 								<br>
 								<input type="radio" name="activity" value="2" required> File
 								<br>
