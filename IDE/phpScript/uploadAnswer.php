@@ -9,12 +9,11 @@ $resultCourseCode = $mysqli->query($sqlGetCourseCode);
 $rowCourseCode = $resultCourseCode->fetch_assoc();
 $courseCode = $rowCourseCode["code"];
 $courseTitle = $rowCourseCode["course"];
-echo $_SESSION['filename'];
-$path="../upload/assignments/$courseCode/answer/".$_SESSION['userid']. "-" .$_SESSION['filename'];
+$attachment = $_FILES['attachment']['name'];
+$path="../upload/assignments/$courseCode/answer/".$_SESSION['userid']. "-" .$attachment;
 
 //Setting untuk upload file
 $extension_list = array('png','jpg', 'pdf', 'docx', 'zip');
-$attachment = $_FILES['attachment']['name'];
 $x = explode('.', $attachment);
 $extension = strtolower(end($x));
 $size = $_FILES['attachment']['size'];
